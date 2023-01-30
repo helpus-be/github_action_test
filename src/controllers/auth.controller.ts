@@ -17,6 +17,7 @@ class AuthController {
 
   // eslint-disable-next-line class-methods-use-this
   public test: RequestHandler = (req, res, next) => {
+    //되라되라
     res.status(200).json({ message: '되나' });
   };
 

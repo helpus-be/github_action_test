@@ -22,4 +22,8 @@ jobs:
         script_stop: true
         script: |
           cd ${{ secrets.PATH }}
-          ls -al
+          git pull orgin master
+          npm install
+          npx prisma db push
+          npx tsc
+          pm2 restart ${{ secrests.PM2_ID }}

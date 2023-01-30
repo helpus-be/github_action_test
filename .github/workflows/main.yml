@@ -11,15 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: connect server
+    - name: SSH Remote Commands
+      # You may pin to the exact commit or the version.
+      # uses: appleboy/ssh-action@d91a1af6f57cd4478ceee14d7705601dafabaa19
       uses: appleboy/ssh-action@v0.1.7
       with:
-        proxy_host: ${{ secrets.PROXY_IP }}
-        proxy_username: ${{ secrets.PROXY_USERNAME }}
-        proxy_key: ${{secrets.PROXY_KEY }}
-        script: |
-          cd ${{ secrets.PATH }}
-          git pull
-          npm install
-          npx tsc
-          pm2 restart ${{ secrets.PM2_ID }}
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        script: whoami

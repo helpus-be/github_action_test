@@ -22,3 +22,4 @@ jobs:
         script_stop: true
         script: |
           cd ${{ secrets.PATH }}
+          ls -al
